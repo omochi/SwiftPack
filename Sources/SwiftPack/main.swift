@@ -23,7 +23,10 @@ func main() throws {
     
     for decl in combinedFile.decls {
         if let cls = decl as? ClassDecl {
-            if cls.visibility == nil {
+//            if cls.visibility == nil {
+//                cls.setVisibility(tokenKind: TokenKind.fileprivateKeyword)
+//            }
+            if cls.visibility == nil || cls.visibility!.text == "public" {
                 cls.setVisibility(tokenKind: TokenKind.fileprivateKeyword)
             }
         }
