@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "DebugReflectable",
-        "repositoryURL": "https://github.com/omochi/DebugReflectable.git",
-        "state": {
-          "branch": null,
-          "revision": "fa15b7516822befe10c6051502a85df2e3026e6f",
-          "version": "0.2.0"
-        }
-      },
-      {
         "package": "SwiftSyntax",
         "repositoryURL": "https://github.com/omochi/SwiftSyntax.git",
         "state": {
