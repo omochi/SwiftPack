@@ -126,13 +126,13 @@ class SourceFile : DebugReflectable {
                 return try ClassDecl.parse(node: decl)
             } else if token.text == "import" {
                 return try ImportDecl.parse(node: decl)
+            } else if token.text == "func" {
+                return try FuncDecl.parse(node: decl)
             }
         }
         
-        print("unknown decl")
-        print(decl.description)
-        let ret = DeclObject()
-        ret.tokens = Array(SyntaxFactory.makeTokenList(tokens))
-        return ret
+//        print("unknown decl")
+//        print(decl.description)
+        return DeclObject(tokens: Array(SyntaxFactory.makeTokenList(tokens)))
     }
 }

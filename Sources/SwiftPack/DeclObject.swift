@@ -10,13 +10,15 @@ import DebugReflect
 import SwiftSyntax
 
 class DeclObject : DebugReflectable {
-    init() {}
-    
-    init(copy: DeclObject) {
-        tokens = Array(SyntaxFactory.makeTokenList(copy.tokens))
+    init(tokens: [TokenSyntax]) {
+        self.tokens = tokens
     }
     
-    var tokens: [TokenSyntax] = []
+    init(copy: DeclObject) {
+        self.tokens = Array(SyntaxFactory.makeTokenList(copy.tokens))
+    }
+    
+    var tokens: [TokenSyntax]
     
     func copy() -> DeclObject {
         return DeclObject(copy: self)

@@ -31,3 +31,9 @@ func findIndex<T>(_ xs: Array<T>, range: CountableRange<Int>, _ pred: ((value: T
 func run<R>(_ f: () throws -> R) rethrows -> R {
     return try f()
 }
+
+extension Array {
+    func getOrNil(at: Index) -> Element? {
+        return at < count ? self[at] : nil
+    }
+}

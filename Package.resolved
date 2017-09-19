@@ -2,8 +2,11 @@
   "object": {
     "pins": [
       {
-        "package": "DebugReflect",
-        "repositoryURL": "https://github.com/omochi/DebugReflect.git",
+        "reference": {
+          "identity": "debugreflect",
+          "isLocal": false,
+          "path": "https://github.com/omochi/DebugReflect.git"
+        },
         "state": {
           "branch": null,
           "revision": "ef3045cbbd54cfbaf009a0e316bc74d24df3312c",
@@ -11,17 +14,11 @@
         }
       },
       {
-        "package": "DebugReflectable",
-        "repositoryURL": "https://github.com/omochi/DebugReflectable.git",
-        "state": {
-          "branch": null,
-          "revision": "fa15b7516822befe10c6051502a85df2e3026e6f",
-          "version": "0.2.0"
-        }
-      },
-      {
-        "package": "SwiftSyntax",
-        "repositoryURL": "https://github.com/omochi/SwiftSyntax.git",
+        "reference": {
+          "identity": "swiftsyntax",
+          "isLocal": false,
+          "path": "https://github.com/omochi/SwiftSyntax.git"
+        },
         "state": {
           "branch": null,
           "revision": "e40de0cfd699a378252755e9daf9732b25140e2d",
@@ -30,5 +27,5 @@
       }
     ]
   },
-  "version": 1
+  "version": 2
 }

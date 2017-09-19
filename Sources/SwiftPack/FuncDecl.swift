@@ -1,15 +1,15 @@
 //
-//  StructCode.swift
+//  FuncDecl.swift
 //  SwiftPack
 //
-//  Created by omochimetaru on 2017/09/08.
+//  Created by omochimetaru on 2017/09/19.
 //
 
 import Foundation
-import DebugReflect
 import SwiftSyntax
+import DebugReflect
 
-class ClassDecl : DeclObject {
+class FuncDecl : DeclObject {
     init(visibilityIndex: Int?,
          keywordIndex: Int,
          nameIndex: Int,
@@ -21,11 +21,14 @@ class ClassDecl : DeclObject {
         super.init(tokens: tokens)
     }
     
-    init(copy: ClassDecl) {
-        visibilityIndex = copy.visibilityIndex
-        keywordIndex = copy.keywordIndex
-        nameIndex = copy.nameIndex
+    init(copy: FuncDecl) {
+        self.keywordIndex = copy.keywordIndex
+        self.nameIndex = copy.nameIndex
         super.init(copy: copy)
+    }
+    
+    override func copy() -> DeclObject {
+        return FuncDecl(copy: self)
     }
     
     var visibilityIndex: Int?
@@ -50,10 +53,6 @@ class ClassDecl : DeclObject {
         b.field("name", name.text)
     }
     
-    override func copy() -> DeclObject {
-        return ClassDecl(copy: self)
-    }
-    
     func setVisibility(tokenKind: TokenKind?) {
         if let tokenKind = tokenKind {
             if let visibilityIndex = self.visibilityIndex {
@@ -74,14 +73,14 @@ class ClassDecl : DeclObject {
         }
     }
     
-    static func parse(node: DeclSyntax) throws -> ClassDecl {
+    static func parse(node: DeclSyntax) throws -> FuncDecl {
         let tokens = Array(SyntaxFactory.makeTokenList(node.children.map { $0 as! TokenSyntax }))
-        let keywordIndex = try nonNil(findIndex(tokens){ classKeywords.contains($0.value.text) }, "class keyword")
+        let keywordIndex = try nonNil(findIndex(tokens){ $0.value.text == "func" }, "func keyword")
         let visibilityIndex = findIndex(tokens, range: 0..<keywordIndex) {
             visibilityKeywords.contains($0.value.text) }
-        return ClassDecl(visibilityIndex: visibilityIndex,
-                         keywordIndex : keywordIndex,
-                         nameIndex: keywordIndex + 1,
-                         tokens: tokens)
+        return FuncDecl(visibilityIndex: visibilityIndex,
+                        keywordIndex: keywordIndex,
+                        nameIndex: keywordIndex + 1,
+                        tokens: tokens)
     }
 }

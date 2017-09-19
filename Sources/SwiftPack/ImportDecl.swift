@@ -10,8 +10,13 @@ import DebugReflect
 import SwiftSyntax
 
 class ImportDecl : DeclObject {
-    override init() {
-        super.init()
+    init(keywordIndex: Int,
+         nameIndex: Int,
+         tokens: [TokenSyntax])
+    {
+        self.keywordIndex = keywordIndex
+        self.nameIndex = nameIndex
+        super.init(tokens: tokens)
     }
     
     init(copy: ImportDecl) {
@@ -42,10 +47,8 @@ class ImportDecl : DeclObject {
     static func parse(node: DeclSyntax) throws -> ImportDecl {
         let tokens = Array(SyntaxFactory.makeTokenList(node.children.map { $0 as! TokenSyntax }))
         let keywordIndex = try nonNil(findIndex(tokens){ $0.value.text == "import" }, "import keyword")
-        let ret = ImportDecl()
-        ret.tokens = tokens
-        ret.keywordIndex = keywordIndex
-        ret.nameIndex = keywordIndex + 1
-        return ret
+        return ImportDecl(keywordIndex: keywordIndex,
+                          nameIndex: keywordIndex + 1,
+                          tokens: tokens)
     }
 }

@@ -26,6 +26,9 @@
 		D626A5721F62897A002D578F /* Syntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626A5711F62897A002D578F /* Syntax.swift */; };
 		D626A5741F6299BA002D578F /* ImportDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626A5731F6299BA002D578F /* ImportDecl.swift */; };
 		D626A5761F629AC1002D578F /* DeclObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626A5751F629AC1002D578F /* DeclObject.swift */; };
+		D62B54F41F70FB4A00461E1C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B54F31F70FB4A00461E1C /* App.swift */; };
+		D62B54F61F7106A000461E1C /* FuncDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B54F51F7106A000461E1C /* FuncDecl.swift */; };
+		D62B54F81F710E6C00461E1C /* SyntaxUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B54F71F710E6C00461E1C /* SyntaxUtil.swift */; };
 		OBJ_100 /* RawSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* RawSyntax.swift */; };
 		OBJ_101 /* SourcePresence.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* SourcePresence.swift */; };
 		OBJ_102 /* SwiftSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* SwiftSyntax.swift */; };
@@ -89,6 +92,9 @@
 		D626A5711F62897A002D578F /* Syntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syntax.swift; sourceTree = "<group>"; };
 		D626A5731F6299BA002D578F /* ImportDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportDecl.swift; sourceTree = "<group>"; };
 		D626A5751F629AC1002D578F /* DeclObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclObject.swift; sourceTree = "<group>"; };
+		D62B54F31F70FB4A00461E1C /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		D62B54F51F7106A000461E1C /* FuncDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncDecl.swift; sourceTree = "<group>"; };
+		D62B54F71F710E6C00461E1C /* SyntaxUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxUtil.swift; sourceTree = "<group>"; };
 		"DebugReflect::DebugReflect::Product" /* DebugReflect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DebugReflect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_11 /* SourceFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceFile.swift; sourceTree = "<group>"; };
 		OBJ_12 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -242,7 +248,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -251,7 +257,6 @@
 				OBJ_14 /* Dependencies */,
 				OBJ_45 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -265,14 +270,17 @@
 		OBJ_8 /* SwiftPack */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_12 /* main.swift */,
 				OBJ_9 /* Error.swift */,
 				OBJ_11 /* SourceFile.swift */,
 				D626A5751F629AC1002D578F /* DeclObject.swift */,
 				D626A56D1F627F7B002D578F /* ClassDecl.swift */,
+				D62B54F51F7106A000461E1C /* FuncDecl.swift */,
 				D626A5731F6299BA002D578F /* ImportDecl.swift */,
 				D626A56F1F6284D3002D578F /* Util.swift */,
 				D626A5711F62897A002D578F /* Syntax.swift */,
+				D62B54F71F710E6C00461E1C /* SyntaxUtil.swift */,
+				D62B54F31F70FB4A00461E1C /* App.swift */,
+				OBJ_12 /* main.swift */,
 			);
 			name = SwiftPack;
 			path = Sources/SwiftPack;
@@ -388,7 +396,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_45 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -433,8 +441,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				D62B54F41F70FB4A00461E1C /* App.swift in Sources */,
+				D62B54F81F710E6C00461E1C /* SyntaxUtil.swift in Sources */,
 				D626A5761F629AC1002D578F /* DeclObject.swift in Sources */,
 				D626A5701F6284D3002D578F /* Util.swift in Sources */,
+				D62B54F61F7106A000461E1C /* FuncDecl.swift in Sources */,
 				OBJ_72 /* Error.swift in Sources */,
 				OBJ_74 /* SourceFile.swift in Sources */,
 				D626A56E1F627F7B002D578F /* ClassDecl.swift in Sources */,
