@@ -9,11 +9,11 @@
 /* Begin PBXAggregateTarget section */
 		"SwiftPack::swift-pack::ProductTarget" /* swift-pack */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_117 /* Build configuration list for PBXAggregateTarget "swift-pack" */;
+			buildConfigurationList = OBJ_131 /* Build configuration list for PBXAggregateTarget "swift-pack" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_120 /* PBXTargetDependency */,
+				OBJ_134 /* PBXTargetDependency */,
 			);
 			name = "swift-pack";
 			productName = "swift-pack";
@@ -21,63 +21,63 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		D626A56E1F627F7B002D578F /* ClassDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626A56D1F627F7B002D578F /* ClassDecl.swift */; };
-		D626A5701F6284D3002D578F /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626A56F1F6284D3002D578F /* Util.swift */; };
-		D626A5721F62897A002D578F /* Syntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626A5711F62897A002D578F /* Syntax.swift */; };
-		D626A5741F6299BA002D578F /* ImportDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626A5731F6299BA002D578F /* ImportDecl.swift */; };
-		D626A5761F629AC1002D578F /* DeclObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626A5751F629AC1002D578F /* DeclObject.swift */; };
-		D62B54F41F70FB4A00461E1C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B54F31F70FB4A00461E1C /* App.swift */; };
-		D62B54F61F7106A000461E1C /* FuncDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B54F51F7106A000461E1C /* FuncDecl.swift */; };
-		D62B54F81F710E6C00461E1C /* SyntaxUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B54F71F710E6C00461E1C /* SyntaxUtil.swift */; };
-		OBJ_100 /* RawSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* RawSyntax.swift */; };
-		OBJ_101 /* SourcePresence.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* SourcePresence.swift */; };
-		OBJ_102 /* SwiftSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* SwiftSyntax.swift */; };
-		OBJ_103 /* SwiftcInvocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* SwiftcInvocation.swift */; };
-		OBJ_104 /* Syntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* Syntax.swift */; };
-		OBJ_105 /* SyntaxBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* SyntaxBuilders.swift */; };
-		OBJ_106 /* SyntaxChildren.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* SyntaxChildren.swift */; };
-		OBJ_107 /* SyntaxCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* SyntaxCollection.swift */; };
-		OBJ_108 /* SyntaxData.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* SyntaxData.swift */; };
-		OBJ_109 /* SyntaxFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* SyntaxFactory.swift */; };
-		OBJ_110 /* SyntaxKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* SyntaxKind.swift */; };
-		OBJ_111 /* SyntaxNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* SyntaxNodes.swift */; };
-		OBJ_112 /* SyntaxRewriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* SyntaxRewriter.swift */; };
-		OBJ_113 /* TokenKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* TokenKind.swift */; };
-		OBJ_114 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* Trivia.swift */; };
-		OBJ_54 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_60 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* Package.swift */; };
-		OBJ_66 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* Package.swift */; };
-		OBJ_72 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Error.swift */; };
-		OBJ_74 /* SourceFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* SourceFile.swift */; };
-		OBJ_75 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* main.swift */; };
-		OBJ_77 /* DebugReflect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DebugReflect::DebugReflect::Product" /* DebugReflect.framework */; };
-		OBJ_78 /* SwiftSyntax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftSyntax::SwiftSyntax::Product" /* SwiftSyntax.framework */; };
-		OBJ_87 /* AnyDebugReflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* AnyDebugReflectable.swift */; };
-		OBJ_88 /* DebugReflectBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* DebugReflectBuilder.swift */; };
-		OBJ_89 /* DebugReflectValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* DebugReflectValue.swift */; };
-		OBJ_90 /* DebugReflectWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* DebugReflectWriter.swift */; };
-		OBJ_91 /* DebugReflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* DebugReflectable.swift */; };
-		OBJ_92 /* SwiftTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* SwiftTypes.swift */; };
-		OBJ_93 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* Util.swift */; };
-		OBJ_99 /* AtomicCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* AtomicCache.swift */; };
+		OBJ_102 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_107 /* AtomicCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* AtomicCache.swift */; };
+		OBJ_108 /* RawSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* RawSyntax.swift */; };
+		OBJ_109 /* SourcePresence.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* SourcePresence.swift */; };
+		OBJ_110 /* SwiftSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* SwiftSyntax.swift */; };
+		OBJ_111 /* SwiftcInvocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* SwiftcInvocation.swift */; };
+		OBJ_112 /* Syntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* Syntax.swift */; };
+		OBJ_113 /* SyntaxBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* SyntaxBuilders.swift */; };
+		OBJ_114 /* SyntaxChildren.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* SyntaxChildren.swift */; };
+		OBJ_115 /* SyntaxCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* SyntaxCollection.swift */; };
+		OBJ_116 /* SyntaxData.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* SyntaxData.swift */; };
+		OBJ_117 /* SyntaxFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* SyntaxFactory.swift */; };
+		OBJ_118 /* SyntaxKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* SyntaxKind.swift */; };
+		OBJ_119 /* SyntaxNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* SyntaxNodes.swift */; };
+		OBJ_120 /* SyntaxRewriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* SyntaxRewriter.swift */; };
+		OBJ_121 /* TokenKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* TokenKind.swift */; };
+		OBJ_122 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* Trivia.swift */; };
+		OBJ_129 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* Package.swift */; };
+		OBJ_61 /* AnyDebugReflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* AnyDebugReflectable.swift */; };
+		OBJ_62 /* DebugReflectBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* DebugReflectBuilder.swift */; };
+		OBJ_63 /* DebugReflectValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* DebugReflectValue.swift */; };
+		OBJ_64 /* DebugReflectWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* DebugReflectWriter.swift */; };
+		OBJ_65 /* DebugReflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* DebugReflectable.swift */; };
+		OBJ_66 /* SwiftTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* SwiftTypes.swift */; };
+		OBJ_67 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* Util.swift */; };
+		OBJ_74 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* Package.swift */; };
+		OBJ_80 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* App.swift */; };
+		OBJ_81 /* ClassDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* ClassDecl.swift */; };
+		OBJ_82 /* DeclObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* DeclObject.swift */; };
+		OBJ_83 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Error.swift */; };
+		OBJ_84 /* FuncDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* FuncDecl.swift */; };
+		OBJ_85 /* ImportDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* ImportDecl.swift */; };
+		OBJ_86 /* SourceFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* SourceFile.swift */; };
+		OBJ_87 /* Syntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Syntax.swift */; };
+		OBJ_88 /* SyntaxUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* SyntaxUtil.swift */; };
+		OBJ_89 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Util.swift */; };
+		OBJ_90 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* main.swift */; };
+		OBJ_92 /* DebugReflect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DebugReflect::DebugReflect::Product" /* DebugReflect.framework */; };
+		OBJ_93 /* SwiftSyntax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftSyntax::SwiftSyntax::Product" /* SwiftSyntax.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D626A56A1F627D7F002D578F /* PBXContainerItemProxy */ = {
+		D62B54F91F71192E00461E1C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "DebugReflect::DebugReflect";
 			remoteInfo = DebugReflect;
 		};
-		D626A56B1F627D7F002D578F /* PBXContainerItemProxy */ = {
+		D62B54FA1F71192E00461E1C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "SwiftSyntax::SwiftSyntax";
 			remoteInfo = SwiftSyntax;
 		};
-		D626A56C1F627D80002D578F /* PBXContainerItemProxy */ = {
+		D62B54FB1F71192E00461E1C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -87,158 +87,163 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D626A56D1F627F7B002D578F /* ClassDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDecl.swift; sourceTree = "<group>"; };
-		D626A56F1F6284D3002D578F /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		D626A5711F62897A002D578F /* Syntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syntax.swift; sourceTree = "<group>"; };
-		D626A5731F6299BA002D578F /* ImportDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportDecl.swift; sourceTree = "<group>"; };
-		D626A5751F629AC1002D578F /* DeclObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclObject.swift; sourceTree = "<group>"; };
-		D62B54F31F70FB4A00461E1C /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		D62B54F51F7106A000461E1C /* FuncDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncDecl.swift; sourceTree = "<group>"; };
-		D62B54F71F710E6C00461E1C /* SyntaxUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxUtil.swift; sourceTree = "<group>"; };
 		"DebugReflect::DebugReflect::Product" /* DebugReflect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DebugReflect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_11 /* SourceFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceFile.swift; sourceTree = "<group>"; };
-		OBJ_12 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		OBJ_17 /* AnyDebugReflectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDebugReflectable.swift; sourceTree = "<group>"; };
-		OBJ_18 /* DebugReflectBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugReflectBuilder.swift; sourceTree = "<group>"; };
-		OBJ_19 /* DebugReflectValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugReflectValue.swift; sourceTree = "<group>"; };
-		OBJ_20 /* DebugReflectWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugReflectWriter.swift; sourceTree = "<group>"; };
-		OBJ_21 /* DebugReflectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugReflectable.swift; sourceTree = "<group>"; };
-		OBJ_22 /* SwiftTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTypes.swift; sourceTree = "<group>"; };
-		OBJ_23 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		OBJ_24 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/omochi/github/omochi/SwiftPack/.build/checkouts/DebugReflect.git-1390228388869925569/Package.swift"; sourceTree = "<group>"; };
-		OBJ_27 /* AtomicCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicCache.swift; sourceTree = "<group>"; };
-		OBJ_28 /* RawSyntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawSyntax.swift; sourceTree = "<group>"; };
-		OBJ_29 /* SourcePresence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcePresence.swift; sourceTree = "<group>"; };
-		OBJ_30 /* SwiftSyntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSyntax.swift; sourceTree = "<group>"; };
-		OBJ_31 /* SwiftcInvocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftcInvocation.swift; sourceTree = "<group>"; };
-		OBJ_32 /* Syntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syntax.swift; sourceTree = "<group>"; };
-		OBJ_33 /* SyntaxBuilders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxBuilders.swift; sourceTree = "<group>"; };
-		OBJ_34 /* SyntaxChildren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxChildren.swift; sourceTree = "<group>"; };
-		OBJ_35 /* SyntaxCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxCollection.swift; sourceTree = "<group>"; };
-		OBJ_36 /* SyntaxData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxData.swift; sourceTree = "<group>"; };
-		OBJ_37 /* SyntaxFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxFactory.swift; sourceTree = "<group>"; };
-		OBJ_38 /* SyntaxKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxKind.swift; sourceTree = "<group>"; };
-		OBJ_39 /* SyntaxNodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxNodes.swift; sourceTree = "<group>"; };
-		OBJ_40 /* SyntaxRewriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxRewriter.swift; sourceTree = "<group>"; };
-		OBJ_41 /* TokenKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenKind.swift; sourceTree = "<group>"; };
-		OBJ_42 /* Trivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
-		OBJ_44 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/omochi/github/omochi/SwiftPack/.build/checkouts/SwiftSyntax.git--5842198569242250266/Package.swift"; sourceTree = "<group>"; };
+		OBJ_10 /* ClassDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDecl.swift; sourceTree = "<group>"; };
+		OBJ_11 /* DeclObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclObject.swift; sourceTree = "<group>"; };
+		OBJ_12 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		OBJ_13 /* FuncDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncDecl.swift; sourceTree = "<group>"; };
+		OBJ_14 /* ImportDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportDecl.swift; sourceTree = "<group>"; };
+		OBJ_15 /* SourceFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceFile.swift; sourceTree = "<group>"; };
+		OBJ_16 /* Syntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syntax.swift; sourceTree = "<group>"; };
+		OBJ_17 /* SyntaxUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxUtil.swift; sourceTree = "<group>"; };
+		OBJ_18 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		OBJ_19 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_21 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = SOURCE_ROOT; };
+		OBJ_25 /* AnyDebugReflectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDebugReflectable.swift; sourceTree = "<group>"; };
+		OBJ_26 /* DebugReflectBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugReflectBuilder.swift; sourceTree = "<group>"; };
+		OBJ_27 /* DebugReflectValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugReflectValue.swift; sourceTree = "<group>"; };
+		OBJ_28 /* DebugReflectWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugReflectWriter.swift; sourceTree = "<group>"; };
+		OBJ_29 /* DebugReflectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugReflectable.swift; sourceTree = "<group>"; };
+		OBJ_30 /* SwiftTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTypes.swift; sourceTree = "<group>"; };
+		OBJ_31 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		OBJ_32 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/omochi/github/omochi/SwiftPack/.build/checkouts/DebugReflect.git-1390228388869925569/Package.swift"; sourceTree = "<group>"; };
+		OBJ_35 /* AtomicCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicCache.swift; sourceTree = "<group>"; };
+		OBJ_36 /* RawSyntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawSyntax.swift; sourceTree = "<group>"; };
+		OBJ_37 /* SourcePresence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcePresence.swift; sourceTree = "<group>"; };
+		OBJ_38 /* SwiftSyntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSyntax.swift; sourceTree = "<group>"; };
+		OBJ_39 /* SwiftcInvocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftcInvocation.swift; sourceTree = "<group>"; };
+		OBJ_40 /* Syntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syntax.swift; sourceTree = "<group>"; };
+		OBJ_41 /* SyntaxBuilders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxBuilders.swift; sourceTree = "<group>"; };
+		OBJ_42 /* SyntaxChildren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxChildren.swift; sourceTree = "<group>"; };
+		OBJ_43 /* SyntaxCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxCollection.swift; sourceTree = "<group>"; };
+		OBJ_44 /* SyntaxData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxData.swift; sourceTree = "<group>"; };
+		OBJ_45 /* SyntaxFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxFactory.swift; sourceTree = "<group>"; };
+		OBJ_46 /* SyntaxKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxKind.swift; sourceTree = "<group>"; };
+		OBJ_47 /* SyntaxNodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxNodes.swift; sourceTree = "<group>"; };
+		OBJ_48 /* SyntaxRewriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxRewriter.swift; sourceTree = "<group>"; };
+		OBJ_49 /* TokenKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenKind.swift; sourceTree = "<group>"; };
+		OBJ_50 /* Trivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
+		OBJ_51 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/omochi/github/omochi/SwiftPack/.build/checkouts/SwiftSyntax.git--5842198569242250266/Package.swift"; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_9 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		OBJ_9 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		"SwiftPack::SwiftPack::Product" /* SwiftPack */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftPack; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SwiftSyntax::SwiftSyntax::Product" /* SwiftSyntax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSyntax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_115 /* Frameworks */ = {
+		OBJ_123 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_76 /* Frameworks */ = {
+		OBJ_68 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_77 /* DebugReflect.framework in Frameworks */,
-				OBJ_78 /* SwiftSyntax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_94 /* Frameworks */ = {
+		OBJ_91 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				OBJ_92 /* DebugReflect.framework in Frameworks */,
+				OBJ_93 /* SwiftSyntax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		OBJ_13 /* Tests */ = {
+		OBJ_20 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_14 /* Dependencies */ = {
+		OBJ_22 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_15 /* DebugReflect 0.2.1 */,
-				OBJ_25 /* SwiftSyntax 0.1.0 */,
+				OBJ_23 /* DebugReflect 0.2.2 */,
+				OBJ_33 /* SwiftSyntax 0.1.1 */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
 		};
-		OBJ_15 /* DebugReflect 0.2.1 */ = {
+		OBJ_23 /* DebugReflect 0.2.2 */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_16 /* DebugReflect */,
-				OBJ_24 /* Package.swift */,
+				OBJ_24 /* DebugReflect */,
+				OBJ_32 /* Package.swift */,
 			);
-			name = "DebugReflect 0.2.1";
+			name = "DebugReflect 0.2.2";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_16 /* DebugReflect */ = {
+		OBJ_24 /* DebugReflect */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_17 /* AnyDebugReflectable.swift */,
-				OBJ_18 /* DebugReflectBuilder.swift */,
-				OBJ_19 /* DebugReflectValue.swift */,
-				OBJ_20 /* DebugReflectWriter.swift */,
-				OBJ_21 /* DebugReflectable.swift */,
-				OBJ_22 /* SwiftTypes.swift */,
-				OBJ_23 /* Util.swift */,
+				OBJ_25 /* AnyDebugReflectable.swift */,
+				OBJ_26 /* DebugReflectBuilder.swift */,
+				OBJ_27 /* DebugReflectValue.swift */,
+				OBJ_28 /* DebugReflectWriter.swift */,
+				OBJ_29 /* DebugReflectable.swift */,
+				OBJ_30 /* SwiftTypes.swift */,
+				OBJ_31 /* Util.swift */,
 			);
 			name = DebugReflect;
 			path = ".build/checkouts/DebugReflect.git-1390228388869925569/Sources/DebugReflect";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_25 /* SwiftSyntax 0.1.0 */ = {
+		OBJ_33 /* SwiftSyntax 0.1.1 */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_26 /* SwiftSyntax */,
-				OBJ_43 /* format-example */,
-				OBJ_44 /* Package.swift */,
+				OBJ_34 /* SwiftSyntax */,
+				OBJ_51 /* Package.swift */,
 			);
-			name = "SwiftSyntax 0.1.0";
+			name = "SwiftSyntax 0.1.1";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_26 /* SwiftSyntax */ = {
+		OBJ_34 /* SwiftSyntax */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_27 /* AtomicCache.swift */,
-				OBJ_28 /* RawSyntax.swift */,
-				OBJ_29 /* SourcePresence.swift */,
-				OBJ_30 /* SwiftSyntax.swift */,
-				OBJ_31 /* SwiftcInvocation.swift */,
-				OBJ_32 /* Syntax.swift */,
-				OBJ_33 /* SyntaxBuilders.swift */,
-				OBJ_34 /* SyntaxChildren.swift */,
-				OBJ_35 /* SyntaxCollection.swift */,
-				OBJ_36 /* SyntaxData.swift */,
-				OBJ_37 /* SyntaxFactory.swift */,
-				OBJ_38 /* SyntaxKind.swift */,
-				OBJ_39 /* SyntaxNodes.swift */,
-				OBJ_40 /* SyntaxRewriter.swift */,
-				OBJ_41 /* TokenKind.swift */,
-				OBJ_42 /* Trivia.swift */,
+				OBJ_35 /* AtomicCache.swift */,
+				OBJ_36 /* RawSyntax.swift */,
+				OBJ_37 /* SourcePresence.swift */,
+				OBJ_38 /* SwiftSyntax.swift */,
+				OBJ_39 /* SwiftcInvocation.swift */,
+				OBJ_40 /* Syntax.swift */,
+				OBJ_41 /* SyntaxBuilders.swift */,
+				OBJ_42 /* SyntaxChildren.swift */,
+				OBJ_43 /* SyntaxCollection.swift */,
+				OBJ_44 /* SyntaxData.swift */,
+				OBJ_45 /* SyntaxFactory.swift */,
+				OBJ_46 /* SyntaxKind.swift */,
+				OBJ_47 /* SyntaxNodes.swift */,
+				OBJ_48 /* SyntaxRewriter.swift */,
+				OBJ_49 /* TokenKind.swift */,
+				OBJ_50 /* Trivia.swift */,
 			);
 			name = SwiftSyntax;
 			path = ".build/checkouts/SwiftSyntax.git--5842198569242250266/Sources/SwiftSyntax";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_43 /* format-example */ = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_20 /* Tests */,
+				OBJ_21 /* Resources */,
+				OBJ_22 /* Dependencies */,
+				OBJ_52 /* Products */,
 			);
-			name = "format-example";
-			path = ".build/checkouts/SwiftSyntax.git--5842198569242250266/Sources/format-example";
-			sourceTree = SOURCE_ROOT;
+			name = "";
+			sourceTree = "<group>";
 		};
-		OBJ_45 /* Products */ = {
+		OBJ_52 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				"SwiftPack::SwiftPack::Product" /* SwiftPack */,
@@ -247,17 +252,6 @@
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		OBJ_5 = {
-			isa = PBXGroup;
-			children = (
-				OBJ_6 /* Package.swift */,
-				OBJ_7 /* Sources */,
-				OBJ_13 /* Tests */,
-				OBJ_14 /* Dependencies */,
-				OBJ_45 /* Products */,
-			);
-			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
@@ -270,17 +264,17 @@
 		OBJ_8 /* SwiftPack */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_9 /* Error.swift */,
-				OBJ_11 /* SourceFile.swift */,
-				D626A5751F629AC1002D578F /* DeclObject.swift */,
-				D626A56D1F627F7B002D578F /* ClassDecl.swift */,
-				D62B54F51F7106A000461E1C /* FuncDecl.swift */,
-				D626A5731F6299BA002D578F /* ImportDecl.swift */,
-				D626A56F1F6284D3002D578F /* Util.swift */,
-				D626A5711F62897A002D578F /* Syntax.swift */,
-				D62B54F71F710E6C00461E1C /* SyntaxUtil.swift */,
-				D62B54F31F70FB4A00461E1C /* App.swift */,
-				OBJ_12 /* main.swift */,
+				OBJ_9 /* App.swift */,
+				OBJ_10 /* ClassDecl.swift */,
+				OBJ_11 /* DeclObject.swift */,
+				OBJ_12 /* Error.swift */,
+				OBJ_13 /* FuncDecl.swift */,
+				OBJ_14 /* ImportDecl.swift */,
+				OBJ_15 /* SourceFile.swift */,
+				OBJ_16 /* Syntax.swift */,
+				OBJ_17 /* SyntaxUtil.swift */,
+				OBJ_18 /* Util.swift */,
+				OBJ_19 /* main.swift */,
 			);
 			name = SwiftPack;
 			path = Sources/SwiftPack;
@@ -291,10 +285,10 @@
 /* Begin PBXNativeTarget section */
 		"DebugReflect::DebugReflect" /* DebugReflect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_83 /* Build configuration list for PBXNativeTarget "DebugReflect" */;
+			buildConfigurationList = OBJ_57 /* Build configuration list for PBXNativeTarget "DebugReflect" */;
 			buildPhases = (
-				OBJ_86 /* Sources */,
-				OBJ_94 /* Frameworks */,
+				OBJ_60 /* Sources */,
+				OBJ_68 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -307,9 +301,9 @@
 		};
 		"DebugReflect::SwiftPMPackageDescription" /* DebugReflectPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_56 /* Build configuration list for PBXNativeTarget "DebugReflectPackageDescription" */;
+			buildConfigurationList = OBJ_70 /* Build configuration list for PBXNativeTarget "DebugReflectPackageDescription" */;
 			buildPhases = (
-				OBJ_59 /* Sources */,
+				OBJ_73 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -321,9 +315,9 @@
 		};
 		"SwiftPack::SwiftPMPackageDescription" /* SwiftPackPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_50 /* Build configuration list for PBXNativeTarget "SwiftPackPackageDescription" */;
+			buildConfigurationList = OBJ_98 /* Build configuration list for PBXNativeTarget "SwiftPackPackageDescription" */;
 			buildPhases = (
-				OBJ_53 /* Sources */,
+				OBJ_101 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -335,16 +329,16 @@
 		};
 		"SwiftPack::SwiftPack" /* SwiftPack */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_68 /* Build configuration list for PBXNativeTarget "SwiftPack" */;
+			buildConfigurationList = OBJ_76 /* Build configuration list for PBXNativeTarget "SwiftPack" */;
 			buildPhases = (
-				OBJ_71 /* Sources */,
-				OBJ_76 /* Frameworks */,
+				OBJ_79 /* Sources */,
+				OBJ_91 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_79 /* PBXTargetDependency */,
-				OBJ_81 /* PBXTargetDependency */,
+				OBJ_94 /* PBXTargetDependency */,
+				OBJ_95 /* PBXTargetDependency */,
 			);
 			name = SwiftPack;
 			productName = SwiftPack;
@@ -353,9 +347,9 @@
 		};
 		"SwiftSyntax::SwiftPMPackageDescription" /* SwiftSyntaxPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_62 /* Build configuration list for PBXNativeTarget "SwiftSyntaxPackageDescription" */;
+			buildConfigurationList = OBJ_125 /* Build configuration list for PBXNativeTarget "SwiftSyntaxPackageDescription" */;
 			buildPhases = (
-				OBJ_65 /* Sources */,
+				OBJ_128 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -367,10 +361,10 @@
 		};
 		"SwiftSyntax::SwiftSyntax" /* SwiftSyntax */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_95 /* Build configuration list for PBXNativeTarget "SwiftSyntax" */;
+			buildConfigurationList = OBJ_103 /* Build configuration list for PBXNativeTarget "SwiftSyntax" */;
 			buildPhases = (
-				OBJ_98 /* Sources */,
-				OBJ_115 /* Frameworks */,
+				OBJ_106 /* Sources */,
+				OBJ_123 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -396,130 +390,201 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5;
-			productRefGroup = OBJ_45 /* Products */;
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_52 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"SwiftPack::SwiftPMPackageDescription" /* SwiftPackPackageDescription */,
-				"DebugReflect::SwiftPMPackageDescription" /* DebugReflectPackageDescription */,
-				"SwiftSyntax::SwiftPMPackageDescription" /* SwiftSyntaxPackageDescription */,
-				"SwiftPack::SwiftPack" /* SwiftPack */,
 				"DebugReflect::DebugReflect" /* DebugReflect */,
+				"DebugReflect::SwiftPMPackageDescription" /* DebugReflectPackageDescription */,
+				"SwiftPack::SwiftPack" /* SwiftPack */,
+				"SwiftPack::SwiftPMPackageDescription" /* SwiftPackPackageDescription */,
 				"SwiftSyntax::SwiftSyntax" /* SwiftSyntax */,
+				"SwiftSyntax::SwiftPMPackageDescription" /* SwiftSyntaxPackageDescription */,
 				"SwiftPack::swift-pack::ProductTarget" /* swift-pack */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_53 /* Sources */ = {
+		OBJ_101 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_54 /* Package.swift in Sources */,
+				OBJ_102 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_59 /* Sources */ = {
+		OBJ_106 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_60 /* Package.swift in Sources */,
+				OBJ_107 /* AtomicCache.swift in Sources */,
+				OBJ_108 /* RawSyntax.swift in Sources */,
+				OBJ_109 /* SourcePresence.swift in Sources */,
+				OBJ_110 /* SwiftSyntax.swift in Sources */,
+				OBJ_111 /* SwiftcInvocation.swift in Sources */,
+				OBJ_112 /* Syntax.swift in Sources */,
+				OBJ_113 /* SyntaxBuilders.swift in Sources */,
+				OBJ_114 /* SyntaxChildren.swift in Sources */,
+				OBJ_115 /* SyntaxCollection.swift in Sources */,
+				OBJ_116 /* SyntaxData.swift in Sources */,
+				OBJ_117 /* SyntaxFactory.swift in Sources */,
+				OBJ_118 /* SyntaxKind.swift in Sources */,
+				OBJ_119 /* SyntaxNodes.swift in Sources */,
+				OBJ_120 /* SyntaxRewriter.swift in Sources */,
+				OBJ_121 /* TokenKind.swift in Sources */,
+				OBJ_122 /* Trivia.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_65 /* Sources */ = {
+		OBJ_128 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_66 /* Package.swift in Sources */,
+				OBJ_129 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_71 /* Sources */ = {
+		OBJ_60 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D62B54F41F70FB4A00461E1C /* App.swift in Sources */,
-				D62B54F81F710E6C00461E1C /* SyntaxUtil.swift in Sources */,
-				D626A5761F629AC1002D578F /* DeclObject.swift in Sources */,
-				D626A5701F6284D3002D578F /* Util.swift in Sources */,
-				D62B54F61F7106A000461E1C /* FuncDecl.swift in Sources */,
-				OBJ_72 /* Error.swift in Sources */,
-				OBJ_74 /* SourceFile.swift in Sources */,
-				D626A56E1F627F7B002D578F /* ClassDecl.swift in Sources */,
-				OBJ_75 /* main.swift in Sources */,
-				D626A5741F6299BA002D578F /* ImportDecl.swift in Sources */,
-				D626A5721F62897A002D578F /* Syntax.swift in Sources */,
+				OBJ_61 /* AnyDebugReflectable.swift in Sources */,
+				OBJ_62 /* DebugReflectBuilder.swift in Sources */,
+				OBJ_63 /* DebugReflectValue.swift in Sources */,
+				OBJ_64 /* DebugReflectWriter.swift in Sources */,
+				OBJ_65 /* DebugReflectable.swift in Sources */,
+				OBJ_66 /* SwiftTypes.swift in Sources */,
+				OBJ_67 /* Util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_86 /* Sources */ = {
+		OBJ_73 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_87 /* AnyDebugReflectable.swift in Sources */,
-				OBJ_88 /* DebugReflectBuilder.swift in Sources */,
-				OBJ_89 /* DebugReflectValue.swift in Sources */,
-				OBJ_90 /* DebugReflectWriter.swift in Sources */,
-				OBJ_91 /* DebugReflectable.swift in Sources */,
-				OBJ_92 /* SwiftTypes.swift in Sources */,
-				OBJ_93 /* Util.swift in Sources */,
+				OBJ_74 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_98 /* Sources */ = {
+		OBJ_79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_99 /* AtomicCache.swift in Sources */,
-				OBJ_100 /* RawSyntax.swift in Sources */,
-				OBJ_101 /* SourcePresence.swift in Sources */,
-				OBJ_102 /* SwiftSyntax.swift in Sources */,
-				OBJ_103 /* SwiftcInvocation.swift in Sources */,
-				OBJ_104 /* Syntax.swift in Sources */,
-				OBJ_105 /* SyntaxBuilders.swift in Sources */,
-				OBJ_106 /* SyntaxChildren.swift in Sources */,
-				OBJ_107 /* SyntaxCollection.swift in Sources */,
-				OBJ_108 /* SyntaxData.swift in Sources */,
-				OBJ_109 /* SyntaxFactory.swift in Sources */,
-				OBJ_110 /* SyntaxKind.swift in Sources */,
-				OBJ_111 /* SyntaxNodes.swift in Sources */,
-				OBJ_112 /* SyntaxRewriter.swift in Sources */,
-				OBJ_113 /* TokenKind.swift in Sources */,
-				OBJ_114 /* Trivia.swift in Sources */,
+				OBJ_80 /* App.swift in Sources */,
+				OBJ_81 /* ClassDecl.swift in Sources */,
+				OBJ_82 /* DeclObject.swift in Sources */,
+				OBJ_83 /* Error.swift in Sources */,
+				OBJ_84 /* FuncDecl.swift in Sources */,
+				OBJ_85 /* ImportDecl.swift in Sources */,
+				OBJ_86 /* SourceFile.swift in Sources */,
+				OBJ_87 /* Syntax.swift in Sources */,
+				OBJ_88 /* SyntaxUtil.swift in Sources */,
+				OBJ_89 /* Util.swift in Sources */,
+				OBJ_90 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_120 /* PBXTargetDependency */ = {
+		OBJ_134 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SwiftPack::SwiftPack" /* SwiftPack */;
-			targetProxy = D626A56C1F627D80002D578F /* PBXContainerItemProxy */;
+			targetProxy = D62B54FB1F71192E00461E1C /* PBXContainerItemProxy */;
 		};
-		OBJ_79 /* PBXTargetDependency */ = {
+		OBJ_94 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "DebugReflect::DebugReflect" /* DebugReflect */;
-			targetProxy = D626A56A1F627D7F002D578F /* PBXContainerItemProxy */;
+			targetProxy = D62B54F91F71192E00461E1C /* PBXContainerItemProxy */;
 		};
-		OBJ_81 /* PBXTargetDependency */ = {
+		OBJ_95 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "SwiftSyntax::SwiftSyntax" /* SwiftSyntax */;
-			targetProxy = D626A56B1F627D7F002D578F /* PBXContainerItemProxy */;
+			targetProxy = D62B54FA1F71192E00461E1C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_118 /* Debug */ = {
+		OBJ_100 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2017-09-18-a.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode_9_GM_seed.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_104 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwiftPack.xcodeproj/SwiftSyntax_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwiftSyntax;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = SwiftSyntax;
+			};
+			name = Debug;
+		};
+		OBJ_105 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwiftPack.xcodeproj/SwiftSyntax_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwiftSyntax;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = SwiftSyntax;
+			};
+			name = Release;
+		};
+		OBJ_126 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2017-09-18-a.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode_9_GM_seed.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_127 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2017-09-18-a.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode_9_GM_seed.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_132 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_119 /* Release */ = {
+		OBJ_133 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
@@ -567,99 +632,7 @@
 			};
 			name = Release;
 		};
-		OBJ_51 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		OBJ_52 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		OBJ_57 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		OBJ_58 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		OBJ_63 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		OBJ_64 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		OBJ_69 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = SwiftPack.xcodeproj/SwiftPack_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
-				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = SwiftPack;
-			};
-			name = Debug;
-		};
-		OBJ_70 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = SwiftPack.xcodeproj/SwiftPack_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
-				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = SwiftPack;
-			};
-			name = Release;
-		};
-		OBJ_84 /* Debug */ = {
+		OBJ_58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -681,7 +654,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_85 /* Release */ = {
+		OBJ_59 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -703,58 +676,97 @@
 			};
 			name = Release;
 		};
-		OBJ_96 /* Debug */ = {
+		OBJ_71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = SwiftPack.xcodeproj/SwiftSyntax_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = SwiftSyntax;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2017-09-18-a.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode_9_GM_seed.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 4.0;
-				TARGET_NAME = SwiftSyntax;
 			};
 			name = Debug;
 		};
-		OBJ_97 /* Release */ = {
+		OBJ_72 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ENABLE_TESTABILITY = YES;
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2017-09-18-a.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode_9_GM_seed.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = SwiftPack.xcodeproj/SwiftSyntax_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				INFOPLIST_FILE = SwiftPack.xcodeproj/SwiftPack_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = SwiftSyntax;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
 				SWIFT_VERSION = 4.0;
-				TARGET_NAME = SwiftSyntax;
+				TARGET_NAME = SwiftPack;
+			};
+			name = Debug;
+		};
+		OBJ_78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SwiftPack.xcodeproj/SwiftPack_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = SwiftPack;
 			};
 			name = Release;
+		};
+		OBJ_99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2017-09-18-a.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode_9_GM_seed.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		OBJ_117 /* Build configuration list for PBXAggregateTarget "swift-pack" */ = {
+		OBJ_103 /* Build configuration list for PBXNativeTarget "SwiftSyntax" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_118 /* Debug */,
-				OBJ_119 /* Release */,
+				OBJ_104 /* Debug */,
+				OBJ_105 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_125 /* Build configuration list for PBXNativeTarget "SwiftSyntaxPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_126 /* Debug */,
+				OBJ_127 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_131 /* Build configuration list for PBXAggregateTarget "swift-pack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_132 /* Debug */,
+				OBJ_133 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -768,56 +780,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_50 /* Build configuration list for PBXNativeTarget "SwiftPackPackageDescription" */ = {
+		OBJ_57 /* Build configuration list for PBXNativeTarget "DebugReflect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_51 /* Debug */,
-				OBJ_52 /* Release */,
+				OBJ_58 /* Debug */,
+				OBJ_59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_56 /* Build configuration list for PBXNativeTarget "DebugReflectPackageDescription" */ = {
+		OBJ_70 /* Build configuration list for PBXNativeTarget "DebugReflectPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_57 /* Debug */,
-				OBJ_58 /* Release */,
+				OBJ_71 /* Debug */,
+				OBJ_72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_62 /* Build configuration list for PBXNativeTarget "SwiftSyntaxPackageDescription" */ = {
+		OBJ_76 /* Build configuration list for PBXNativeTarget "SwiftPack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_63 /* Debug */,
-				OBJ_64 /* Release */,
+				OBJ_77 /* Debug */,
+				OBJ_78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_68 /* Build configuration list for PBXNativeTarget "SwiftPack" */ = {
+		OBJ_98 /* Build configuration list for PBXNativeTarget "SwiftPackPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_69 /* Debug */,
-				OBJ_70 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		OBJ_83 /* Build configuration list for PBXNativeTarget "DebugReflect" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_84 /* Debug */,
-				OBJ_85 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		OBJ_95 /* Build configuration list for PBXNativeTarget "SwiftSyntax" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_96 /* Debug */,
-				OBJ_97 /* Release */,
+				OBJ_99 /* Debug */,
+				OBJ_100 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
