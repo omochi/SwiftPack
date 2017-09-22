@@ -109,7 +109,7 @@ class SyntaxParser {
             let token = tokens[index]
             
             if token.text == "{" {
-                index = parseBraceBody(tokens: tokens, startIndex: index)
+                index = parseBraceBody(tokens: tokens, startIndex: index + 1) + 1
                 break
             } else {
                 index += 1
@@ -181,7 +181,7 @@ class SyntaxParser {
             }
             let token = tokens[index]
             if token.text == "{" {
-                index = parseBraceBody(tokens: tokens, startIndex: index)
+                index = parseBraceBody(tokens: tokens, startIndex: index + 1) + 1
                 break
             } else {
                 index += 1
@@ -295,7 +295,7 @@ class SyntaxParser {
             }
             let token = tokens[index]
             if token.text == "{" {
-                index = parseBraceBody(tokens: tokens, startIndex: index)
+                index = parseBraceBody(tokens: tokens, startIndex: index + 1) + 1
                 break
             } else {
                 index += 1
@@ -319,11 +319,11 @@ class SyntaxParser {
                 braceCount += 1
                 index += 1
             } else if token.text == "}" {
-                braceCount -= 1
-                index += 1
-                if braceCount <= 0 {
+                if braceCount == 0 {
                     return index
                 }
+                braceCount -= 1
+                index += 1
             } else {
                 index += 1
             }
