@@ -33,9 +33,8 @@ class SourceFile : DebugReflectable {
     
     static func parse(path: URL) throws -> SourceFile {
         let source = try Syntax.parse(path)
-        let ret = SourceFile()
-        try ret.parse(source: source)
-        return ret
+        let parser = SyntaxParser()
+        return try parser.parse(source: source)
     }
     
     static func combine(_ sources: [SourceFile]) -> SourceFile {
@@ -107,32 +106,5 @@ class SourceFile : DebugReflectable {
                                                leadingTrivia: endTrivia, trailingTrivia: .zero)
         
         return ret
-    }
-    
-    private func parse(source: SourceFileSyntax) throws {
-        for decl in source.topLevelDecls {
-            let decl = try parse(decl: decl)
-            decls.append(decl)
-        }
-        eofToken = source.eofToken
-    }
-    
-    private func parse(decl: DeclSyntax) throws -> DeclObject {
-        let tokens = Array(decl.children.map { $0 as! TokenSyntax })
-        for token in tokens {
-            if token.text == "{" {
-                break
-            } else if classKeywords.contains(token.text) {
-                return try ClassDecl.parse(node: decl)
-            } else if token.text == "import" {
-                return try ImportDecl.parse(node: decl)
-            } else if token.text == "func" {
-                return try FuncDecl.parse(node: decl)
-            }
-        }
-        
-//        print("unknown decl")
-//        print(decl.description)
-        return DeclObject(tokens: Array(SyntaxFactory.makeTokenList(tokens)))
     }
 }

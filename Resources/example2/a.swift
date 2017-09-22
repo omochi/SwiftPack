@@ -16,3 +16,5 @@ public struct PublicStruct {
 func f0() {
     
 }
+
+

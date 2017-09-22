@@ -38,7 +38,6 @@ func removeToken(tokens: [TokenSyntax], at: Int) -> [TokenSyntax] {
     if var rightToken = tokens.getOrNil(at: rightIndex) {
         rightToken = rightToken
             .withLeadingTrivia(removingToken.leadingTrivia +
-                removingToken.trailingTrivia +
                 rightToken.leadingTrivia)
         tokens[rightIndex] = rightToken
     }

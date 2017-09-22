@@ -43,12 +43,4 @@ class ImportDecl : DeclObject {
     override func copy() -> DeclObject {
         return ImportDecl(copy: self)
     }
-    
-    static func parse(node: DeclSyntax) throws -> ImportDecl {
-        let tokens = Array(SyntaxFactory.makeTokenList(node.children.map { $0 as! TokenSyntax }))
-        let keywordIndex = try nonNil(findIndex(tokens){ $0.value.text == "import" }, "import keyword")
-        return ImportDecl(keywordIndex: keywordIndex,
-                          nameIndex: keywordIndex + 1,
-                          tokens: tokens)
-    }
 }

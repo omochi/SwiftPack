@@ -9,7 +9,7 @@ import Foundation
 import DebugReflect
 import SwiftSyntax
 
-class ClassDecl : DeclObject {
+class ClassDecl : DeclObject, VisibilityControllable {
     init(visibilityIndex: Int?,
          keywordIndex: Int,
          nameIndex: Int,
@@ -72,16 +72,5 @@ class ClassDecl : DeclObject {
                 nameIndex -= 1
             }
         }
-    }
-    
-    static func parse(node: DeclSyntax) throws -> ClassDecl {
-        let tokens = Array(SyntaxFactory.makeTokenList(node.children.map { $0 as! TokenSyntax }))
-        let keywordIndex = try nonNil(findIndex(tokens){ classKeywords.contains($0.value.text) }, "class keyword")
-        let visibilityIndex = findIndex(tokens, range: 0..<keywordIndex) {
-            visibilityKeywords.contains($0.value.text) }
-        return ClassDecl(visibilityIndex: visibilityIndex,
-                         keywordIndex : keywordIndex,
-                         nameIndex: keywordIndex + 1,
-                         tokens: tokens)
     }
 }

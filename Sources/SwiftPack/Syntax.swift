@@ -9,7 +9,8 @@ import Foundation
 
 let classKeywords: [String] = [
     "class",
-    "struct"
+    "struct",
+    "protocol",
 ]
 
 let visibilityKeywords: [String] = [

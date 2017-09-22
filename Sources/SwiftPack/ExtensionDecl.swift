@@ -1,34 +1,31 @@
 //
-//  FuncDecl.swift
+//  ExtensionDecl.swift
 //  SwiftPack
 //
-//  Created by omochimetaru on 2017/09/19.
+//  Created by omochimetaru on 2017/09/22.
 //
 
 import Foundation
-import SwiftSyntax
 import DebugReflect
+import SwiftSyntax
 
-class FuncDecl : DeclObject, VisibilityControllable {
+class ExtensionDecl : DeclObject, VisibilityControllable {
     init(visibilityIndex: Int?,
          keywordIndex: Int,
-         nameIndex: Int,
-         tokens: [TokenSyntax])
+         tokens: [TokenSyntax],
+         rightBraceToken: TokenSyntax)
     {
         self.visibilityIndex = visibilityIndex
         self.keywordIndex = keywordIndex
-        self.nameIndex = nameIndex
+        self.rightBraceToken = rightBraceToken
         super.init(tokens: tokens)
     }
     
-    init(copy: FuncDecl) {
+    init(copy: ExtensionDecl) {
+        self.visibilityIndex = copy.visibilityIndex
         self.keywordIndex = copy.keywordIndex
-        self.nameIndex = copy.nameIndex
+        self.rightBraceToken = copy.rightBraceToken
         super.init(copy: copy)
-    }
-    
-    override func copy() -> DeclObject {
-        return FuncDecl(copy: self)
     }
     
     var visibilityIndex: Int?
@@ -41,16 +38,15 @@ class FuncDecl : DeclObject, VisibilityControllable {
         return tokens[keywordIndex]
     }
     
-    var nameIndex: Int
-    var name: TokenSyntax {
-        return tokens[nameIndex]
+    var rightBraceToken: TokenSyntax
+    
+    override func copy() -> DeclObject {
+        return ExtensionDecl(copy: self)
     }
     
-    override func registerFields(builder b: DebugReflectBuilder) {
-        super.registerFields(builder: b)
-        b.fieldIfPresent("visibility", visibility?.text)
-        b.field("keyword", keyword.text)
-        b.field("name", name.text)
+    override func write() -> String {
+        return tokens.map { $0.description }.joined() +
+        rightBraceToken.description
     }
     
     func setVisibility(tokenKind: TokenKind?) {
@@ -61,14 +57,12 @@ class FuncDecl : DeclObject, VisibilityControllable {
                 tokens = insertToken(tokens: tokens, kind: tokenKind, at: keywordIndex)
                 visibilityIndex = keywordIndex
                 keywordIndex += 1
-                nameIndex += 1
             }
         } else {
             if let visibilityIndex = self.visibilityIndex {
                 tokens = removeToken(tokens: tokens, at: visibilityIndex)
                 self.visibilityIndex = nil
                 keywordIndex -= 1
-                nameIndex -= 1
             }
         }
     }

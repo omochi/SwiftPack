@@ -37,3 +37,24 @@ extension Array {
         return at < count ? self[at] : nil
     }
 }
+
+extension FileManager {
+    func isDir(atPath path: String) -> Bool {
+        var x = ObjCBool(false)
+        return fileExists(atPath: path, isDirectory: &x) && x.boolValue
+    }
+    
+    func swiftPaths(atPath path: String) throws -> [String] {
+        let path = URL(fileURLWithPath: path)
+        let files: [URL]
+        if isDir(atPath: path.relativePath) {
+            files = try subpathsOfDirectory(atPath: path.relativePath).map { URL(fileURLWithPath: $0) }
+        } else {
+            files = [path]
+        }
+        return files
+            .filter { !isDir(atPath: path.appendingPathComponent($0.relativePath).relativePath) }
+            .filter { $0.pathExtension == "swift" }
+            .map { $0.relativePath }
+    }
+}
