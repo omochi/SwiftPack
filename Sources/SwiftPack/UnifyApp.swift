@@ -37,6 +37,16 @@ class UnifyApp {
             switch decl {
             case let ext as ExtensionDecl:
                 ext.setVisibility(tokenKind: nil)
+                
+                for extDecl in ext.decls {
+                    switch extDecl {
+                    case let extVctr as VisibilityControllable:
+                        extVctr.setVisibility(tokenKind: TokenKind.fileprivateKeyword)
+                    default:
+                        break
+                    }
+                }                
+                
             case let vctr as VisibilityControllable:
                 vctr.setVisibility(tokenKind: TokenKind.fileprivateKeyword)
             default:

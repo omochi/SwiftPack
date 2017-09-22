@@ -7,6 +7,6 @@ class DefaultClass {
     var a: Int = 1
 }
 
-public class PublicClass {
+@objc public class PublicClass {
     var a: Int = 1
 }

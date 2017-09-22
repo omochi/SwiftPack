@@ -13,10 +13,12 @@ class ExtensionDecl : DeclObject, VisibilityControllable {
     init(visibilityIndex: Int?,
          keywordIndex: Int,
          tokens: [TokenSyntax],
+         decls: [DeclObject],
          rightBraceToken: TokenSyntax)
     {
         self.visibilityIndex = visibilityIndex
         self.keywordIndex = keywordIndex
+        self.decls = decls
         self.rightBraceToken = rightBraceToken
         super.init(tokens: tokens)
     }
@@ -24,6 +26,7 @@ class ExtensionDecl : DeclObject, VisibilityControllable {
     init(copy: ExtensionDecl) {
         self.visibilityIndex = copy.visibilityIndex
         self.keywordIndex = copy.keywordIndex
+        self.decls = copy.decls.map { $0.copy() }
         self.rightBraceToken = copy.rightBraceToken
         super.init(copy: copy)
     }
@@ -38,6 +41,8 @@ class ExtensionDecl : DeclObject, VisibilityControllable {
         return tokens[keywordIndex]
     }
     
+    var decls: [DeclObject]
+    
     var rightBraceToken: TokenSyntax
     
     override func copy() -> DeclObject {
@@ -46,7 +51,8 @@ class ExtensionDecl : DeclObject, VisibilityControllable {
     
     override func write() -> String {
         return tokens.map { $0.description }.joined() +
-        rightBraceToken.description
+            decls.map { $0.write() }.joined() +
+            rightBraceToken.description
     }
     
     func setVisibility(tokenKind: TokenKind?) {
