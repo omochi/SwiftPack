@@ -60,16 +60,15 @@ class SyntaxParser {
             } else if token.text == "}" {
                 break
             } else {
-                let remTokens = Array(tokens[index...])
-
+                let ret = parseUnknownDecl(tokens: tokens, startIndex: index)
+                appendDecl(ret.decl, index: ret.endIndex)
+                
+                let unknownTokens = ret.decl.tokens
                 print("===unknown decl===")
-                for i in 0..<remTokens.count {
-                    print("\(type(of: remTokens[i])): [\(remTokens[i])]")
+                for i in 0..<unknownTokens.count {
+                    print("  \(type(of: unknownTokens[i])): [\(unknownTokens[i])]")
                 }
                 print("===")
-
-                let unknown = DeclObject(tokens: Array(SyntaxFactory.makeTokenList(remTokens)))
-                appendDecl(unknown, index: tokens.count)
             }
         }
         
@@ -285,6 +284,27 @@ class SyntaxParser {
                                     tokens: Array(tokens[startIndex...leftBraceIndex]),
                                     decls: decls,
                                     rightBraceToken: tokens[rightBraceIndex]))
+    }
+    
+    func parseUnknownDecl(tokens: [TokenSyntax], startIndex: Int) -> (endIndex: Int, decl: DeclObject) {
+        var index = startIndex
+        while true {
+            if index >= tokens.count {
+                index = tokens.count
+                break
+            }
+            let token = tokens[index]
+            if token.text == "{" {
+                index = parseBraceBody(tokens: tokens, startIndex: index)
+                break
+            } else {
+                index += 1
+            }
+        }
+        
+        let remTokens = Array(tokens[startIndex..<index])
+        return (endIndex: index,
+                decl: DeclObject(tokens: remTokens))
     }
 
     func parseBraceBody(tokens: [TokenSyntax], startIndex: Int) -> Int {
