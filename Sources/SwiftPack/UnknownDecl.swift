@@ -9,31 +9,21 @@ import Foundation
 import SwiftSyntax
 import DebugReflect
 
-class UnknownDecl : DeclObject {
+final class UnknownDecl : DeclObjectProtocol,
+LeadingTokensProtocol {    
     init(tokens: [TokenSyntax]) {
-        self.tokens = tokens
+        self.leadingTokens = tokens
     }
     
-    var tokens: [TokenSyntax]
+    var leadingTokens: [TokenSyntax]
     
-    override func copy() -> DeclObject {
-        return UnknownDecl(tokens: tokens)
+    func copy() -> UnknownDecl {
+        return UnknownDecl(tokens: leadingTokens)
     }
     
-    override func registerFields(builder: DebugReflectBuilder) {
-        builder.field("tokens", tokens)
-    }
-    
-    override var leadingTrivia: Trivia {
-        get {
-            return tokens[0].leadingTrivia
+    func debugReflect() -> DebugReflectValue {
+        return .build { b in
+            b.field("tokens", leadingTokens)
         }
-        set {
-            tokens[0] = tokens[0].withLeadingTrivia(newValue)
-        }
-    }
-    
-    override func write() -> String {
-        return tokens.map { String(describing: $0) }.joined()
     }
 }

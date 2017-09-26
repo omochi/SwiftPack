@@ -9,53 +9,65 @@ import Foundation
 import SwiftSyntax
 import DebugReflect
 
-class PropertyDecl : DeclObject {
+final class PropertyDecl : DeclObjectProtocol,
+    VisibilityDeclProtocol,
+LeadingTokensProtocol {
     init(visibilityIndex: Int?,
          keywordIndex: Int,
          tokens: [TokenSyntax])
     {
         self.visibilityIndex = visibilityIndex
         self.keywordIndex = keywordIndex
-        self.tokens = tokens
+        self.leadingTokens = tokens
     }
     
     init(copy: PropertyDecl) {
         self.visibilityIndex = copy.visibilityIndex
         self.keywordIndex = copy.keywordIndex
-        self.tokens = copy.tokens
+        self.leadingTokens = copy.leadingTokens
     }
     
-    override func copy() -> DeclObject {
+    func copy() -> PropertyDecl {
         return PropertyDecl(copy: self)
     }
     
     var visibilityIndex: Int?
     var visibility: TokenSyntax? {
-        return visibilityIndex.map { tokens[$0] }
+        return visibilityIndex.map { leadingTokens[$0] }
     }
     
     var keywordIndex: Int
     var keyword: TokenSyntax {
-        return tokens[keywordIndex]
+        return leadingTokens[keywordIndex]
     }
     
-    var tokens: [TokenSyntax]
-    
-    override func registerFields(builder: DebugReflectBuilder) {
-        builder.field("tokens", tokens)
-        super.registerFields(builder: builder)
-    }
-    
-    override var leadingTrivia: Trivia {
-        get {
-            return tokens[0].leadingTrivia
-        }
-        set {
-            tokens[0] = tokens[0].withLeadingTrivia(newValue)
+    func debugReflect() -> DebugReflectValue {
+        return .build { b in
+//            b.fieldIfPresent("visibility", visibility?.text)
+//            b.field("keyword", keyword.text)
+            b.fieldIfPresent("visi", visibilityIndex)
+            b.field("keyword", keywordIndex)
+            b.field("tokens", leadingTokens)
         }
     }
     
-    override func write() -> String {
-        return tokens.map { $0.description }.joined()
+    var leadingTokens: [TokenSyntax]
+    
+    func setVisibility(tokenKind: TokenKind?) {
+        if let tokenKind = tokenKind {
+            if let visibilityIndex = self.visibilityIndex {
+                leadingTokens = updateToken(tokens: leadingTokens, kind: tokenKind, at: visibilityIndex)
+            } else {
+                leadingTokens = insertToken(tokens: leadingTokens, kind: tokenKind, at: keywordIndex)
+                visibilityIndex = keywordIndex
+                keywordIndex += 1
+            }
+        } else {
+            if let visibilityIndex = self.visibilityIndex {
+                leadingTokens = removeToken(tokens: leadingTokens, at: visibilityIndex)
+                self.visibilityIndex = nil
+                keywordIndex -= 1
+            }
+        }
     }
 }

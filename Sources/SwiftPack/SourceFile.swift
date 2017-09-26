@@ -17,7 +17,7 @@ class SourceFile : DebugReflectable {
         eofToken = copy.eofToken.withKind(copy.eofToken.tokenKind)
     }
     
-    var decls: [DeclObject] = []
+    var decls: [AnyDeclObject] = []
     var eofToken: TokenSyntax = SyntaxFactory.makeToken(.eof, presence: .present,
                                                         leadingTrivia: .zero, trailingTrivia: .zero)
 
@@ -54,9 +54,9 @@ class SourceFile : DebugReflectable {
             var declIndex = 0
             while declIndex < source.decls.count {
                 let decl = source.decls[declIndex]
-                if let imp = decl as? ImportDecl {
+                if let imp = decl.value as? ImportDecl {
                     if alreadyImported(imp) {
-                        let trivia = imp.tokens.first!.leadingTrivia + imp.tokens.last!.trailingTrivia
+                        let trivia = imp.leadingTokens.first!.leadingTrivia + imp.leadingTokens.last!.trailingTrivia
                         if declIndex + 1 < source.decls.count {
                             let nextDecl = source.decls[declIndex + 1]
                             nextDecl.leadingTrivia = trivia + nextDecl.leadingTrivia
@@ -77,7 +77,7 @@ class SourceFile : DebugReflectable {
         }
         
         for imp in importDecls {
-            ret.decls.append(imp)
+            ret.decls.append(AnyDeclObject(imp))
         }
         
         var endTrivia: Trivia = .zero

@@ -19,7 +19,7 @@ class SyntaxParser {
         return ret
     }
     
-    func parseTopDecl(_ decl: DeclSyntax) throws -> DeclObject {
+    func parseTopDecl(_ decl: DeclSyntax) throws -> AnyDeclObject {
         let tokens = Array(decl.children.map { $0 as! TokenSyntax })
 
         let ret = try parseDecls(tokens: tokens, startIndex: 0)
@@ -32,13 +32,13 @@ class SyntaxParser {
         return ret.decls[0]
     }
     
-    func parseDecls(tokens: [TokenSyntax], startIndex: Int) throws -> (endIndex: Int, decls: [DeclObject]) {
+    func parseDecls(tokens: [TokenSyntax], startIndex: Int) throws -> (endIndex: Int, decls: [AnyDeclObject]) {
         var index = startIndex
-        var decls = [DeclObject]()
+        var decls = [AnyDeclObject]()
         
-        func appendDecl(_ decl: DeclObject, index newIndex: Int) {
+        func appendDecl<X: DeclObjectProtocol>(_ decl: X, index newIndex: Int) {
             index = newIndex
-            decls.append(decl)
+            decls.append(AnyDeclObject(decl))
         }
         
         while true {
@@ -65,7 +65,7 @@ class SyntaxParser {
                 let ret = parseUnknownDecl(tokens: tokens, startIndex: index)
                 appendDecl(ret.decl, index: ret.endIndex)
                 
-                let unknownTokens = ret.decl.tokens
+                let unknownTokens = ret.decl.leadingTokens
                 print("===unknown decl===")
                 for i in 0..<unknownTokens.count {
                     print("  \(type(of: unknownTokens[i])): [\(unknownTokens[i])]")
@@ -272,7 +272,7 @@ class SyntaxParser {
         
         var leftBraceIndex: Int = 0
         var rightBraceIndex: Int = 0
-        var decls = [DeclObject]()
+        var decls = [AnyDeclObject]()
         
         while true {
             if index >= tokens.count {
@@ -305,7 +305,7 @@ class SyntaxParser {
         return (endIndex: index,
                 decl: ExtensionDecl(visibilityIndex: visibilityIndex.map { $0 - startIndex },
                                     keywordIndex: keywordIndex - startIndex,
-                                    tokens: Array(tokens[startIndex...leftBraceIndex]),
+                                    leadingTokens: Array(tokens[startIndex...leftBraceIndex]),
                                     isConformance: isConformance,
                                     decls: decls,
                                     rightBraceToken: tokens[rightBraceIndex]))
@@ -349,8 +349,8 @@ class SyntaxParser {
         }
         
         return (endIndex: index,
-                decl: PropertyDecl(visibilityIndex: visibilityIndex,
-                                   keywordIndex: keywordIndex,
+                decl: PropertyDecl(visibilityIndex: visibilityIndex.map { $0 - startIndex },
+                                   keywordIndex: keywordIndex - startIndex,
                                    tokens: Array(tokens[startIndex..<index])))
         
         

@@ -34,7 +34,7 @@ class UnifyApp {
         let combinedSource = SourceFile.combine(inputSources)
         
         for decl in combinedSource.decls {
-            switch decl {
+            switch decl.value {
             case let ext as ExtensionDecl:
                 if ext.isConformance {
                     ext.setVisibility(tokenKind: nil)
@@ -43,15 +43,15 @@ class UnifyApp {
                 }
                 
                 for extDecl in ext.decls {
-                    switch extDecl {
-                    case let extVctr as VisibilityControllable:
+                    switch extDecl.value {
+                    case let extVctr as VisibilityDeclProtocol:
                         extVctr.setVisibility(tokenKind: TokenKind.fileprivateKeyword)
                     default:
                         break
                     }
-                }                
+                }
                 
-            case let vctr as VisibilityControllable:
+            case let vctr as VisibilityDeclProtocol:
                 vctr.setVisibility(tokenKind: TokenKind.fileprivateKeyword)
             default:
                 break

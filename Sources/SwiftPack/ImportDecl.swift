@@ -9,53 +9,45 @@ import Foundation
 import DebugReflect
 import SwiftSyntax
 
-class ImportDecl : DeclObject {
+final class ImportDecl : DeclObjectProtocol,
+    LeadingTokensProtocol
+{
     init(keywordIndex: Int,
          nameIndex: Int,
          tokens: [TokenSyntax])
     {
         self.keywordIndex = keywordIndex
         self.nameIndex = nameIndex
-        self.tokens = tokens
+        self.leadingTokens = tokens
     }
     
     init(copy: ImportDecl) {
         keywordIndex = copy.keywordIndex
         nameIndex = copy.nameIndex
-        tokens = copy.tokens
+        leadingTokens = copy.leadingTokens
     }
     
     var keywordIndex: Int = 0
     var keyword: TokenSyntax {
-        return tokens[keywordIndex]
+        return leadingTokens[keywordIndex]
     }
     
     var nameIndex: Int = 0
     var name: TokenSyntax {
-        return tokens[nameIndex]
+        return leadingTokens[nameIndex]
     }
     
-    var tokens: [TokenSyntax]
+    var leadingTokens: [TokenSyntax]
     
-    override func registerFields(builder b: DebugReflectBuilder) {
-        super.registerFields(builder: b)
-        b.field("name", name.text)
-    }
-    
-    override func copy() -> DeclObject {
+    func copy() -> ImportDecl {
         return ImportDecl(copy: self)
     }
     
-    override var leadingTrivia: Trivia {
-        get {
-            return tokens[0].leadingTrivia
+    func debugReflect() -> DebugReflectValue {
+        return .build { b in
+            b.field("keyword", keyword.text)
+            b.field("name", name.text)
+            b.field("leadingTokens", leadingTokens)
         }
-        set {
-            tokens[0] = tokens[0].withLeadingTrivia(newValue)
-        }
-    }
-    
-    override func write() -> String {
-        return tokens.map { String(describing: $0) }.joined()
     }
 }

@@ -25,7 +25,6 @@
 		D62B54FD1F711D7900461E1C /* TypeAliasDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62B54FC1F711D7900461E1C /* TypeAliasDecl.swift */; };
 		D68871DB1F74E45400231A13 /* SyntaxParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68871DA1F74E45400231A13 /* SyntaxParser.swift */; };
 		D68871DD1F74E51B00231A13 /* ExtensionDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68871DC1F74E51B00231A13 /* ExtensionDecl.swift */; };
-		D68871DF1F7505EF00231A13 /* VisibilityControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68871DE1F7505EF00231A13 /* VisibilityControllable.swift */; };
 		D68871E11F79FF7800231A13 /* PropertyDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68871E01F79FF7800231A13 /* PropertyDecl.swift */; };
 		D68871E31F7A13EE00231A13 /* UnknownDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68871E21F7A13EE00231A13 /* UnknownDecl.swift */; };
 		OBJ_102 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
@@ -98,7 +97,6 @@
 		D62B54FC1F711D7900461E1C /* TypeAliasDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliasDecl.swift; sourceTree = "<group>"; };
 		D68871DA1F74E45400231A13 /* SyntaxParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxParser.swift; sourceTree = "<group>"; };
 		D68871DC1F74E51B00231A13 /* ExtensionDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDecl.swift; sourceTree = "<group>"; };
-		D68871DE1F7505EF00231A13 /* VisibilityControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityControllable.swift; sourceTree = "<group>"; };
 		D68871E01F79FF7800231A13 /* PropertyDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDecl.swift; sourceTree = "<group>"; };
 		D68871E21F7A13EE00231A13 /* UnknownDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownDecl.swift; sourceTree = "<group>"; };
 		"DebugReflect::DebugReflect::Product" /* DebugReflect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DebugReflect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,7 +278,6 @@
 				OBJ_18 /* Util.swift */,
 				OBJ_12 /* Error.swift */,
 				OBJ_11 /* DeclObject.swift */,
-				D68871DE1F7505EF00231A13 /* VisibilityControllable.swift */,
 				OBJ_14 /* ImportDecl.swift */,
 				OBJ_10 /* ClassDecl.swift */,
 				D62B54FC1F711D7900461E1C /* TypeAliasDecl.swift */,
@@ -493,7 +490,6 @@
 			buildActionMask = 0;
 			files = (
 				D68871E11F79FF7800231A13 /* PropertyDecl.swift in Sources */,
-				D68871DF1F7505EF00231A13 /* VisibilityControllable.swift in Sources */,
 				OBJ_80 /* App.swift in Sources */,
 				D60FB4131F712036006E3FF5 /* UnifyApp.swift in Sources */,
 				OBJ_81 /* ClassDecl.swift in Sources */,
