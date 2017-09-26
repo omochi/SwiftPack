@@ -36,7 +36,11 @@ class UnifyApp {
         for decl in combinedSource.decls {
             switch decl {
             case let ext as ExtensionDecl:
-                ext.setVisibility(tokenKind: nil)
+                if ext.isConformance {
+                    ext.setVisibility(tokenKind: nil)
+                } else {
+                    ext.setVisibility(tokenKind: TokenKind.fileprivateKeyword)
+                }
                 
                 for extDecl in ext.decls {
                     switch extDecl {

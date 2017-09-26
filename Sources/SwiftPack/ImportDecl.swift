@@ -16,13 +16,13 @@ class ImportDecl : DeclObject {
     {
         self.keywordIndex = keywordIndex
         self.nameIndex = nameIndex
-        super.init(tokens: tokens)
+        self.tokens = tokens
     }
     
     init(copy: ImportDecl) {
         keywordIndex = copy.keywordIndex
         nameIndex = copy.nameIndex
-        super.init(copy: copy)
+        tokens = copy.tokens
     }
     
     var keywordIndex: Int = 0
@@ -35,6 +35,8 @@ class ImportDecl : DeclObject {
         return tokens[nameIndex]
     }
     
+    var tokens: [TokenSyntax]
+    
     override func registerFields(builder b: DebugReflectBuilder) {
         super.registerFields(builder: b)
         b.field("name", name.text)
@@ -42,5 +44,18 @@ class ImportDecl : DeclObject {
     
     override func copy() -> DeclObject {
         return ImportDecl(copy: self)
+    }
+    
+    override var leadingTrivia: Trivia {
+        get {
+            return tokens[0].leadingTrivia
+        }
+        set {
+            tokens[0] = tokens[0].withLeadingTrivia(newValue)
+        }
+    }
+    
+    override func write() -> String {
+        return tokens.map { String(describing: $0) }.joined()
     }
 }

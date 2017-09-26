@@ -16,11 +16,13 @@ class TypeAliasDecl : DeclObject, VisibilityControllable {
     {
         self.visibilityIndex = visibilityIndex
         self.keywordIndex = keywordIndex
-        super.init(tokens: tokens)
+        self.tokens = tokens
     }
     
     init(copy: TypeAliasDecl) {
-        super.init(copy: copy)
+        visibilityIndex = copy.visibilityIndex
+        keywordIndex = copy.keywordIndex
+        tokens = copy.tokens
     }
     
     override func copy() -> DeclObject {
@@ -36,6 +38,8 @@ class TypeAliasDecl : DeclObject, VisibilityControllable {
     var keyword: TokenSyntax {
         return tokens[keywordIndex]
     }
+    
+    var tokens: [TokenSyntax]
     
     func setVisibility(tokenKind: TokenKind?) {
         if let tokenKind = tokenKind {
@@ -53,5 +57,18 @@ class TypeAliasDecl : DeclObject, VisibilityControllable {
                 keywordIndex -= 1
             }
         }
+    }
+    
+    override var leadingTrivia: Trivia {
+        get {
+            return tokens[0].leadingTrivia
+        }
+        set {
+            tokens[0] = tokens[0].withLeadingTrivia(newValue)
+        }
+    }
+    
+    override func write() -> String {
+        return tokens.map { String(describing: $0) }.joined()
     }
 }

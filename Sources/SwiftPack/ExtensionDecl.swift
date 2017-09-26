@@ -13,22 +13,25 @@ class ExtensionDecl : DeclObject, VisibilityControllable {
     init(visibilityIndex: Int?,
          keywordIndex: Int,
          tokens: [TokenSyntax],
+         isConformance: Bool,
          decls: [DeclObject],
          rightBraceToken: TokenSyntax)
     {
         self.visibilityIndex = visibilityIndex
         self.keywordIndex = keywordIndex
+        self.tokens = tokens
+        self.isConformance = isConformance
         self.decls = decls
         self.rightBraceToken = rightBraceToken
-        super.init(tokens: tokens)
     }
     
     init(copy: ExtensionDecl) {
         self.visibilityIndex = copy.visibilityIndex
         self.keywordIndex = copy.keywordIndex
+        self.tokens = copy.tokens
+        self.isConformance = copy.isConformance
         self.decls = copy.decls.map { $0.copy() }
         self.rightBraceToken = copy.rightBraceToken
-        super.init(copy: copy)
     }
     
     var visibilityIndex: Int?
@@ -41,18 +44,16 @@ class ExtensionDecl : DeclObject, VisibilityControllable {
         return tokens[keywordIndex]
     }
     
+    var tokens: [TokenSyntax]
+    
+    var isConformance: Bool
+    
     var decls: [DeclObject]
     
     var rightBraceToken: TokenSyntax
     
     override func copy() -> DeclObject {
         return ExtensionDecl(copy: self)
-    }
-    
-    override func write() -> String {
-        return tokens.map { $0.description }.joined() +
-            decls.map { $0.write() }.joined() +
-            rightBraceToken.description
     }
     
     func setVisibility(tokenKind: TokenKind?) {
@@ -71,5 +72,20 @@ class ExtensionDecl : DeclObject, VisibilityControllable {
                 keywordIndex -= 1
             }
         }
+    }
+    
+    override var leadingTrivia: Trivia {
+        get {
+            return tokens[0].leadingTrivia
+        }
+        set {
+            tokens[0] = tokens[0].withLeadingTrivia(newValue)
+        }
+    }
+    
+    override func write() -> String {
+        return tokens.map { $0.description }.joined() +
+            decls.map { $0.write() }.joined() +
+            rightBraceToken.description
     }
 }

@@ -18,13 +18,13 @@ class FuncDecl : DeclObject, VisibilityControllable {
         self.visibilityIndex = visibilityIndex
         self.keywordIndex = keywordIndex
         self.nameIndex = nameIndex
-        super.init(tokens: tokens)
+        self.tokens = tokens
     }
     
     init(copy: FuncDecl) {
         self.keywordIndex = copy.keywordIndex
         self.nameIndex = copy.nameIndex
-        super.init(copy: copy)
+        self.tokens = copy.tokens
     }
     
     override func copy() -> DeclObject {
@@ -45,6 +45,8 @@ class FuncDecl : DeclObject, VisibilityControllable {
     var name: TokenSyntax {
         return tokens[nameIndex]
     }
+    
+    var tokens: [TokenSyntax]
     
     override func registerFields(builder b: DebugReflectBuilder) {
         super.registerFields(builder: b)
@@ -71,5 +73,18 @@ class FuncDecl : DeclObject, VisibilityControllable {
                 nameIndex -= 1
             }
         }
+    }
+    
+    override var leadingTrivia: Trivia {
+        get {
+            return tokens[0].leadingTrivia
+        }
+        set {
+            tokens[0] = tokens[0].withLeadingTrivia(newValue)
+        }
+    }
+    
+    override func write() -> String {
+        return tokens.map { String(describing: $0) }.joined()
     }
 }

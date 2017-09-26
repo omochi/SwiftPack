@@ -13,6 +13,11 @@ let classKeywords: [String] = [
     "protocol",
 ]
 
+let propertyKeywords: [String] = [
+    "var",
+    "let"
+]
+
 let visibilityKeywords: [String] = [
     "public",
     "internal",

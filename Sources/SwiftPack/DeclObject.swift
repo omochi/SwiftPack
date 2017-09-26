@@ -9,19 +9,9 @@ import Foundation
 import DebugReflect
 import SwiftSyntax
 
-class DeclObject : DebugReflectable {
-    init(tokens: [TokenSyntax]) {
-        self.tokens = tokens
-    }
-    
-    init(copy: DeclObject) {
-        self.tokens = Array(SyntaxFactory.makeTokenList(copy.tokens))
-    }
-    
-    var tokens: [TokenSyntax]
-    
-    func copy() -> DeclObject {
-        return DeclObject(copy: self)
+class DeclObject : DebugReflectable {    
+    func copy() -> DeclObject {        
+        fatalError("must override")
     }
     
     func debugReflect() -> DebugReflectValue {
@@ -32,7 +22,16 @@ class DeclObject : DebugReflectable {
     
     func registerFields(builder: DebugReflectBuilder) {}
     
+    var leadingTrivia: Trivia {
+        get {
+            fatalError("must override")
+        }
+        set {
+            fatalError("must override")
+        }
+    }
+    
     func write() -> String {
-        return tokens.map { $0.description }.joined()
+        fatalError("must override")
     }
 }

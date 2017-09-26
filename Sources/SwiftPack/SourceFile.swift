@@ -59,9 +59,7 @@ class SourceFile : DebugReflectable {
                         let trivia = imp.tokens.first!.leadingTrivia + imp.tokens.last!.trailingTrivia
                         if declIndex + 1 < source.decls.count {
                             let nextDecl = source.decls[declIndex + 1]
-                            var firstToken = nextDecl.tokens[0]
-                            firstToken = firstToken.withLeadingTrivia(trivia + firstToken.leadingTrivia)
-                            nextDecl.tokens[0] = firstToken
+                            nextDecl.leadingTrivia = trivia + nextDecl.leadingTrivia
                         } else {
                             source.eofToken = source.eofToken.withLeadingTrivia(trivia + source.eofToken.leadingTrivia)
                         }
@@ -87,12 +85,8 @@ class SourceFile : DebugReflectable {
             if source.decls.count > 0 {
                 let firstDecl = source.decls.first!
                 
-                run {
-                    var firstToken = firstDecl.tokens[0]
-                    firstToken = firstToken.withLeadingTrivia(endTrivia + firstToken.leadingTrivia)
-                    firstDecl.tokens[0] = firstToken
-                    endTrivia = .zero
-                }
+                firstDecl.leadingTrivia = endTrivia + firstDecl.leadingTrivia
+                endTrivia = .zero
                 
                 for decl in source.decls {
                     ret.decls.append(decl)

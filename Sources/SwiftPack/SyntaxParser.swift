@@ -57,6 +57,8 @@ class SyntaxParser {
                 appendDecl(ret.decl, index: ret.endIndex)
             } else if let ret = try parseExtensionDecl(tokens: tokens, startIndex: index) {
                 appendDecl(ret.decl, index: ret.endIndex)
+            } else if let ret = try parsePropertyDecl(tokens: tokens, startIndex: index) {
+                appendDecl(ret.decl, index: ret.endIndex)
             } else if token.text == "}" {
                 break
             } else {
@@ -195,7 +197,6 @@ class SyntaxParser {
                                tokens: Array(tokens[startIndex..<index])))
     }
     
-    
     func parseTypeAliasDecl(tokens: [TokenSyntax], startIndex: Int) throws -> (endIndex: Int, decl: TypeAliasDecl)? {
         var index = startIndex
         
@@ -246,6 +247,29 @@ class SyntaxParser {
         let keywordIndex: Int = index
         index += 1
         
+        // name
+        index += 1
+        
+        var isConformance: Bool = false
+        
+        while true {
+            if index >= tokens.count {
+                break
+            }
+            let token = tokens[index]
+            if token.text == "{" {
+                break
+            } else if token.text == ":" {
+                index += 1
+                isConformance = true
+                break
+            } else {
+                break
+            }
+        }
+        
+        print("isConformance: \(isConformance)")
+        
         var leftBraceIndex: Int = 0
         var rightBraceIndex: Int = 0
         var decls = [DeclObject]()
@@ -282,11 +306,57 @@ class SyntaxParser {
                 decl: ExtensionDecl(visibilityIndex: visibilityIndex.map { $0 - startIndex },
                                     keywordIndex: keywordIndex - startIndex,
                                     tokens: Array(tokens[startIndex...leftBraceIndex]),
+                                    isConformance: isConformance,
                                     decls: decls,
                                     rightBraceToken: tokens[rightBraceIndex]))
     }
     
-    func parseUnknownDecl(tokens: [TokenSyntax], startIndex: Int) -> (endIndex: Int, decl: DeclObject) {
+    func parsePropertyDecl(tokens: [TokenSyntax], startIndex: Int) throws -> (endIndex: Int, decl: PropertyDecl)? {
+        var index = startIndex
+        
+        var visibilityIndex: Int?
+        while true {
+            if index >= tokens.count {
+                return nil
+            }
+            let token = tokens[index]
+            if visibilityKeywords.contains(token.text) {
+                visibilityIndex = index
+                index += 1
+            } else if propertyKeywords.contains(token.text) {
+                break
+            } else {
+                return nil
+            }
+        }
+        
+        let keywordIndex = index
+        
+        while true {
+            if index >= tokens.count {
+                fatalError("no property brace")
+            }
+            let token = tokens[index]
+            if token.text == "{" {
+                index += 1
+                
+                index = parseBraceBody(tokens: tokens, startIndex: index)
+                index += 1
+                break
+            } else {
+                index += 1
+            }
+        }
+        
+        return (endIndex: index,
+                decl: PropertyDecl(visibilityIndex: visibilityIndex,
+                                   keywordIndex: keywordIndex,
+                                   tokens: Array(tokens[startIndex..<index])))
+        
+        
+    }
+    
+    func parseUnknownDecl(tokens: [TokenSyntax], startIndex: Int) -> (endIndex: Int, decl: UnknownDecl) {
         var index = startIndex
         while true {
             if index >= tokens.count {
@@ -304,7 +374,7 @@ class SyntaxParser {
         
         let remTokens = Array(tokens[startIndex..<index])
         return (endIndex: index,
-                decl: DeclObject(tokens: remTokens))
+                decl: UnknownDecl(tokens: remTokens))
     }
 
     func parseBraceBody(tokens: [TokenSyntax], startIndex: Int) -> Int {
