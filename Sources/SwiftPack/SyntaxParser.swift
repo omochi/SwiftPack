@@ -22,22 +22,22 @@ class SyntaxParser {
     func parseTopDecl(_ decl: DeclSyntax) throws -> AnyDeclObject {
         let tokens = Array(decl.children.map { $0 as! TokenSyntax })
 
-        let ret = try parseDecls(tokens: tokens[...])
+        let ret = try parseDecls(tokens: tokens, startIndex: 0)
         precondition(ret.decls.count == 1)
         
-        if ret.rest.count != 0 {
-            print("parse top decl error: rest index=\(ret.rest.startIndex)..<\(ret.rest.endIndex)")
+        guard ret.endIndex == tokens.count else {
+            throw Error("parse top decl error: rest index=\(ret.endIndex)..<\(tokens.endIndex)")
         }
         return ret.decls[0]
     }
     
-    func parseDecls(tokens: ArraySlice<TokenSyntax>) throws -> (decls: [AnyDeclObject], rest: ArraySlice<TokenSyntax>) {
-        var index = tokens.startIndex
+    func parseDecls(tokens: Array<TokenSyntax>, startIndex: Int) throws -> (decls: [AnyDeclObject], endIndex: Int) {
+        var index = startIndex
         var decls = [AnyDeclObject]()
         
-        func appendDecl<X: DeclObjectProtocol>(_ x: (decl: X, rest: ArraySlice<TokenSyntax>)) {
+        func appendDecl<X: DeclObjectProtocol>(_ x: (decl: X, endIndex: Int)) {
             decls.append(AnyDeclObject(x.decl))
-            index = x.rest.startIndex
+            index = x.endIndex
         }
         
         while true {
@@ -46,22 +46,22 @@ class SyntaxParser {
             }
             let token = tokens[index]
             
-            if let ret = try parseClassDecl(tokens: tokens[index...]) {
+            if let ret = try parseClassDecl(tokens: tokens, startIndex: index) {
                 appendDecl(ret)
-            } else if let ret = try parseImportDecl(tokens: tokens[index...]) {
+            } else if let ret = try parseImportDecl(tokens: tokens, startIndex: index) {
                 appendDecl(ret)
-            } else if let ret = try parseFuncDecl(tokens: tokens[index...]) {
+            } else if let ret = try parseFuncDecl(tokens: tokens, startIndex: index) {
                 appendDecl(ret)
-            } else if let ret = try parseTypeAliasDecl(tokens: tokens[index...]) {
+            } else if let ret = try parseTypeAliasDecl(tokens: tokens, startIndex: index) {
                 appendDecl(ret)
-            } else if let ret = try parseExtensionDecl(tokens: tokens[index...]) {
+            } else if let ret = try parseExtensionDecl(tokens: tokens, startIndex: index) {
                 appendDecl(ret)
-            } else if let ret = try parsePropertyDecl(tokens: tokens[index...]) {
+            } else if let ret = try parsePropertyDecl(tokens: tokens, startIndex: index) {
                 appendDecl(ret)
             } else if token.text == "}" {
                 break
             } else {
-                let ret = parseUnknownDecl(tokens: tokens[index...])
+                let ret = parseUnknownDecl(tokens: tokens, startIndex: index)
                 appendDecl(ret)
                 
                 let unknownTokens = ret.decl.leadingTokens
@@ -73,11 +73,11 @@ class SyntaxParser {
             }
         }
         
-        return (decls: decls, rest: tokens[index...])
+        return (decls: decls, endIndex: index)
     }
     
-    func parseClassDecl(tokens: ArraySlice<TokenSyntax>) throws -> (decl: ClassDecl, rest: ArraySlice<TokenSyntax>)? {
-        var index = tokens.startIndex
+    func parseClassDecl(tokens: Array<TokenSyntax>, startIndex: Int) throws -> (decl: ClassDecl, endIndex: Int)? {
+        var index = startIndex
         
         var visibilityIndex: Int?
         while true {
@@ -110,23 +110,23 @@ class SyntaxParser {
             let token = tokens[index]
             
             if token.text == "{" {
-                let ret = parseBraceBlock(tokens: tokens[index...])
-                index = ret.startIndex
+                let ret = parseBraceBlock(tokens: tokens, startIndex: index)
+                index = ret
                 break
             } else {
                 index += 1
             }
         }
         
-        return (decl: ClassDecl(visibilityIndex: visibilityIndex.map { $0 - tokens.startIndex },
-                                keywordIndex: keywordIndex - tokens.startIndex,
-                                nameIndex: nameIndex - tokens.startIndex,
-                                tokens: Array(tokens[..<index])),
-                rest: tokens[index...])
+        return (decl: ClassDecl(visibilityIndex: visibilityIndex.map { $0 - startIndex },
+                                keywordIndex: keywordIndex - startIndex,
+                                nameIndex: nameIndex - startIndex,
+                                tokens: Array(tokens[startIndex..<index])),
+                endIndex: index)
     }
     
-    func parseImportDecl(tokens: ArraySlice<TokenSyntax>) throws -> (decl: ImportDecl, rest: ArraySlice<TokenSyntax>)? {
-        var index = tokens.startIndex
+    func parseImportDecl(tokens: Array<TokenSyntax>, startIndex: Int) throws -> (decl: ImportDecl, endIndex: Int)? {
+        var index = startIndex
         
         while true {
             if index >= tokens.endIndex {
@@ -147,14 +147,14 @@ class SyntaxParser {
         let nameIndex: Int = index
         index += 1
 
-        return (decl: ImportDecl(keywordIndex: keywordIndex - tokens.startIndex,
-                                 nameIndex: nameIndex - tokens.startIndex,
-                                 tokens: Array(tokens[..<index])),
-                rest: tokens[index...])
+        return (decl: ImportDecl(keywordIndex: keywordIndex - startIndex,
+                                 nameIndex: nameIndex - startIndex,
+                                 tokens: Array(tokens[startIndex..<index])),
+                endIndex: index)
     }
     
-    func parseFuncDecl(tokens: ArraySlice<TokenSyntax>) throws -> (decl: FuncDecl, rest: ArraySlice<TokenSyntax>)? {
-        var index = tokens.startIndex
+    func parseFuncDecl(tokens: Array<TokenSyntax>, startIndex: Int) throws -> (decl: FuncDecl, endIndex: Int)? {
+        var index = startIndex
 
         var visibilityIndex: Int?
         while true {
@@ -186,23 +186,23 @@ class SyntaxParser {
             }
             let token = tokens[index]
             if token.text == "{" {
-                let ret = parseBraceBlock(tokens: tokens[index...])
-                index = ret.startIndex
+                let ret = parseBraceBlock(tokens: tokens, startIndex: index)
+                index = ret
                 break
             } else {
                 index += 1
             }
         }
         
-        return (decl: FuncDecl(visibilityIndex: visibilityIndex.map { $0 - tokens.startIndex },
-                               keywordIndex : keywordIndex - tokens.startIndex,
-                               nameIndex: nameIndex - tokens.startIndex,
-                               tokens: Array(tokens[..<index])),
-                rest: tokens[index...])
+        return (decl: FuncDecl(visibilityIndex: visibilityIndex.map { $0 - startIndex },
+                               keywordIndex : keywordIndex - startIndex,
+                               nameIndex: nameIndex - startIndex,
+                               tokens: Array(tokens[startIndex..<index])),
+                endIndex: index)
     }
     
-    func parseTypeAliasDecl(tokens: ArraySlice<TokenSyntax>) throws -> (decl: TypeAliasDecl, rest: ArraySlice<TokenSyntax>)? {
-        var index = tokens.startIndex
+    func parseTypeAliasDecl(tokens: Array<TokenSyntax>, startIndex: Int) throws -> (decl: TypeAliasDecl, endIndex: Int)? {
+        var index = startIndex
         var visibilityIndex: Int?
         while true {
             if index >= tokens.endIndex {
@@ -222,14 +222,14 @@ class SyntaxParser {
         let keywordIndex: Int = index
         index += 4
         
-        return (decl: TypeAliasDecl(visibilityIndex: visibilityIndex.map { $0 - tokens.startIndex },
-                                    keywordIndex : keywordIndex - tokens.startIndex,
-                                    tokens: Array(tokens[..<index])),
-                rest: tokens[index...])
+        return (decl: TypeAliasDecl(visibilityIndex: visibilityIndex.map { $0 - startIndex },
+                                    keywordIndex : keywordIndex - startIndex,
+                                    tokens: Array(tokens[startIndex..<index])),
+                endIndex: index)
     }
     
-    func parseExtensionDecl(tokens: ArraySlice<TokenSyntax>) throws -> (decl: ExtensionDecl, rest: ArraySlice<TokenSyntax>)? {
-        var index = tokens.startIndex
+    func parseExtensionDecl(tokens: Array<TokenSyntax>, startIndex: Int) throws -> (decl: ExtensionDecl, endIndex: Int)? {
+        var index = startIndex
         var visibilityIndex: Int?
         while true {
             if index >= tokens.endIndex {
@@ -283,8 +283,8 @@ class SyntaxParser {
                 leftBraceIndex = index
                 index += 1
                 
-                let bodyRet = try parseDecls(tokens: tokens[index...])
-                index = bodyRet.rest.startIndex
+                let bodyRet = try parseDecls(tokens: tokens, startIndex: index)
+                index = bodyRet.endIndex
                 decls = bodyRet.decls
                 
                 rightBraceIndex = index
@@ -296,17 +296,17 @@ class SyntaxParser {
             }
         }
         
-        return (decl: ExtensionDecl(visibilityIndex: visibilityIndex.map { $0 - tokens.startIndex },
-                                    keywordIndex: keywordIndex - tokens.startIndex,
-                                    leadingTokens: Array(tokens[...leftBraceIndex]),
+        return (decl: ExtensionDecl(visibilityIndex: visibilityIndex.map { $0 - startIndex },
+                                    keywordIndex: keywordIndex - startIndex,
+                                    leadingTokens: Array(tokens[startIndex...leftBraceIndex]),
                                     isConformance: isConformance,
                                     decls: decls,
                                     rightBraceToken: tokens[rightBraceIndex]),
-                rest: tokens[index...])
+                endIndex: index)
     }
     
-    func parsePropertyDecl(tokens: ArraySlice<TokenSyntax>) throws -> (decl: PropertyDecl, rest: ArraySlice<TokenSyntax>)? {
-        var index = tokens.startIndex
+    func parsePropertyDecl(tokens: Array<TokenSyntax>, startIndex: Int) throws -> (decl: PropertyDecl, endIndex: Int)? {
+        var index = startIndex
         
         var visibilityIndex: Int?
         while true {
@@ -332,47 +332,47 @@ class SyntaxParser {
             }
             let token = tokens[index]
             if token.text == "{" {
-                let ret = parseBraceBlock(tokens: tokens[index...])
-                index = ret.startIndex
+                let ret = parseBraceBlock(tokens: tokens, startIndex: index)
+                index = ret
                 break
             } else {
                 index += 1
             }
         }
         
-        return (decl: PropertyDecl(visibilityIndex: visibilityIndex.map { $0 - tokens.startIndex },
-                                   keywordIndex: keywordIndex - tokens.startIndex,
-                                   tokens: Array(tokens[..<index])),
-                rest: tokens[index...])
+        return (decl: PropertyDecl(visibilityIndex: visibilityIndex.map { $0 - startIndex },
+                                   keywordIndex: keywordIndex - startIndex,
+                                   tokens: Array(tokens[startIndex..<index])),
+                endIndex: index)
     }
     
-    func parseUnknownDecl(tokens: ArraySlice<TokenSyntax>) -> (decl: UnknownDecl, rest: ArraySlice<TokenSyntax>) {
-        var index = tokens.startIndex
+    func parseUnknownDecl(tokens: Array<TokenSyntax>, startIndex: Int) -> (decl: UnknownDecl, endIndex: Int) {
+        var index = startIndex
         while true {
             if index >= tokens.endIndex {
                 break
             }
             let token = tokens[index]
             if token.text == "{" {
-                let ret = parseBraceBlock(tokens: tokens[index...])
-                index = ret.startIndex
+                let ret = parseBraceBlock(tokens: tokens, startIndex: index)
+                index = ret
                 break
             } else {
                 index += 1
             }
         }
         
-        return (decl: UnknownDecl(tokens: Array(tokens[..<index])),
-                rest: tokens[index...])
+        return (decl: UnknownDecl(tokens: Array(tokens[startIndex..<index])),
+                endIndex: index)
     }
 
-    func parseBraceBlock(tokens: ArraySlice<TokenSyntax>) -> ArraySlice<TokenSyntax> {
+    func parseBraceBlock(tokens: Array<TokenSyntax>, startIndex: Int) -> Int {
         var braceCount: Int = 0
-        var index = tokens.startIndex
+        var index = startIndex
         
         while true {
             if index >= tokens.endIndex {
-                return tokens[index...]
+                break
             }
             let token = tokens[index]
             if token.text == "{" {
@@ -382,12 +382,14 @@ class SyntaxParser {
                 braceCount -= 1
                 index += 1
                 if braceCount == 0 {
-                    return tokens[index...]
+                    break
                 }
             } else {
                 index += 1
             }
         }
+        
+        return index
     }
     
 }
