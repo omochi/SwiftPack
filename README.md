@@ -9,6 +9,6 @@ You need to specify newer swift snapshot which supports `-emit-syntax`.
 
 ```bash
 $ export TOOLCHAINS=org.swift.3020170918a
-$ swift run swift-pack unify Resources/example1
+$ swift run swift-pack unify Resources/example2
 ```
 
